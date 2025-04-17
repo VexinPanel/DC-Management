@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Bot Manager</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">
+        <img src="assets/logo.svg" alt="Discord Bot Manager">
+        <h1>Discord Bot Manager</h1>
+      </div>
+      <button id="create-bot-btn" class="btn btn-primary">
+        <span class="icon">+</span>
+        Create Bot
+      </button>
+    </header>
+    
+    <main id="main-content">
+      <div id="home-page" class="page active">
+        <div class="bots-container">
+          <div id="bots-list" class="bots-grid">
+            <!-- Bots will be loaded here -->
+            <div id="no-bots-message" class="no-bots-message">
+              <img src="assets/robot.svg" alt="No bots" class="no-bots-icon">
+              <h2>No bots created yet</h2>
+              <p>Create your first Discord bot to get started</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="bot-page" class="page">
+        <div class="bot-layout">
+          <nav class="bot-sidebar">
+            <div class="bot-info">
+              <h2 id="bot-name">Bot Name</h2>
+              <span id="bot-status" class="status">Stopped</span>
+            </div>
+            <ul class="nav-links">
+              <li data-section="overview" class="active">
+                <a href="#overview">
+                  <span class="icon">📊</span>
+                  Overview
+                </a>
+              </li>
+              <li data-section="commands">
+                <a href="#commands">
+                  <span class="icon">⌨️</span>
+                  Commands
+                </a>
+              </li>
+              <li data-section="backups">
+                <a href="#backups">
+                  <span class="icon">💾</span>
+                  Backups
+                </a>
+              </li>
+              <li data-section="settings">
+                <a href="#settings">
+                  <span class="icon">⚙️</span>
+                  Settings
+                </a>
+              </li>
+            </ul>
+            <div class="sidebar-footer">
+              <button id="back-to-home" class="btn btn-text">
+                <span class="icon">←</span>
+                Back to Home
+              </button>
+            </div>
+          </nav>
+          
+          <div class="bot-content">
+            <section id="overview-section" class="bot-section active">
+              <h2>Overview</h2>
+              <div class="overview-card">
+                <div class="bot-controls">
+                  <button id="start-bot-btn" class="btn btn-success">
+                    <span class="icon">▶️</span>
+                    Start Bot
+                  </button>
+                  <button id="restart-bot-btn" class="btn btn-primary">
+                    <span class="icon">🔄</span>
+                    Restart Bot
+                  </button>
+                </div>
+                <div class="warning-note">
+                  <p>⚠️ Your bot is only online when this application is running and you've clicked Start.</p>
+                </div>
+              </div>
+            </section>
+            
+            <section id="commands-section" class="bot-section">
+              <h2>Commands</h2>
+              <div class="commands-header">
+                <button id="create-command-btn" class="btn btn-primary">
+                  <span class="icon">+</span>
+                  Create Command
+                </button>
+              </div>
+              <div id="commands-list" class="commands-list">
+                <!-- Commands will be loaded here -->
+                <div id="no-commands-message" class="no-items-message">
+                  <p>No commands created yet</p>
+                </div>
+              </div>
+            </section>
+            
+            <section id="backups-section" class="bot-section">
+              <h2>Backups</h2>
+              <div class="backups-header">
+                <button id="create-backup-btn" class="btn btn-primary">
+                  <span class="icon">+</span>
+                  Create Backup
+                </button>
+                <button id="upload-backup-btn" class="btn btn-secondary">
+                  <span class="icon">↑</span>
+                  Upload Backup
+                </button>
+              </div>
+              <div id="backups-list" class="backups-list">
+                <!-- Backups will be loaded here -->
+                <div id="no-backups-message" class="no-items-message">
+                  <p>No backups created yet</p>
+                </div>
+              </div>
+            </section>
+            
+            <section id="settings-section" class="bot-section">
+              <h2>Settings</h2>
+              <form id="bot-settings-form" class="settings-form">
+                <div class="form-group">
+                  <label for="settings-bot-name">Bot Name</label>
+                  <input type="text" id="settings-bot-name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="settings-bot-token">Bot Token</label>
+                  <input type="password" id="settings-bot-token" name="token" required>
+                </div>
+                <div class="form-group">
+                  <label for="settings-bot-description">Bot Description</label>
+                  <textarea id="settings-bot-description" name="description" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Save Changes</button>
+                  <button type="button" id="delete-bot-btn" class="btn btn-danger">Delete Bot</button>
+                </div>
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Create Bot Modal -->
+  <div id="create-bot-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create New Bot</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="create-bot-form">
+          <div class="form-group">
+            <label for="bot-name">Bot Name</label>
+            <input type="text" id="bot-name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="bot-token">Bot Token</label>
+            <input type="password" id="bot-token" name="token" required>
+            <small>You can get this from the <a href="https://discord.com/developers/applications" target="_blank">Discord Developer Portal</a></small>
+          </div>
+          <div class="form-group">
+            <label for="bot-language">Language</label>
+            <select id="bot-language" name="language" required>
+              <option value="JavaScript">JavaScript</option>
+              <option value="Python">Python</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Create Command Modal -->
+  <div id="create-command-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="command-modal-title">Create Command</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="command-form">
+          <div class="form-group">
+            <label for="command-name">Command Name</label>
+            <input type="text" id="command-name" name="name" required>
+            <small id="command-name-help">This will be the trigger for your command (e.g., "ping" for !ping)</small>
+          </div>
+          <div class="form-group">
+            <label for="command-code">Command Code</label>
+            <div id="code-editor-container">
+              <textarea id="command-code" name="code" rows="15"></textarea>
+            </div>
+            <small id="command-code-help">Write your command code here</small>
+          </div>
+          <input type="hidden" id="command-id" name="id">
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary close-modal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal -->
+  <div id="confirm-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="confirm-title">Confirmation</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-message">Are you sure you want to proceed?</p>
+        <div class="form-actions">
+          <button id="confirm-yes" class="btn btn-danger">Yes</button>
+          <button id="confirm-no" class="btn btn-secondary">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <div class="toast-content">
+      <span id="toast-message"></span>
+    </div>
+  </div>
+  
+  <div id="overlay"></div>
+  
+  <script src="js/app.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/bot.js"></script>
+  <script src="js/commands.js"></script>
+  <script src="js/backups.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/modals.js"></script>
+</body>
+</html>
