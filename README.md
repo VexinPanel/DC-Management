@@ -53,31 +53,32 @@ Change your working directory to the project folder:
 ```
 cd discord-bot-manager
 ```
-Step 3: Install Dependencies
+**Step 3:** Install Dependencies
 Install the necessary dependencies using npm:
 ```
 npm install
 ```
 This command will install all required libraries, including Electron, Express, and others specified in the package.json file.
+---
 
-Step 4: Choose Your Operating System
+**Step 4:** Choose Your Operating System
 Make sure you have the right version of Node.js and Electron based on your operating system.
 
-Windows
+**Windows**
 If you're on Windows, you'll need to have Windows 7 or later. You can check your version by pressing Win + R, typing winver, and pressing Enter.
 
 If you are using a 32-bit version of Windows, you might encounter issues with Electron. Ensure you're running a 64-bit version of Windows for the best experience.
 
-macOS
+**macOS**
 For macOS users, make sure you're running macOS 10.12 Sierra or later. To check your macOS version, click the Apple logo at the top-left corner of your screen and select "About This Mac."
 
-Linux
+**Linux**
 Linux users should be running a distribution released after Ubuntu 20.04 or a similar modern distribution. For installation of dependencies like libgconf-2-4, make sure your system has the proper libraries. You can install missing libraries using the following commands:
 
 ```
 sudo apt-get install libgconf-2-4
 ```
-Step 5: Start the Application
+**Step 5**: Start the Application
 Once the dependencies are installed, you can start the app by running:
 ```
 npm start
@@ -87,36 +88,37 @@ This will launch the app and open a new window that you can interact with.
 Usage
 Interface Overview
 Once the application is running, you'll see a main interface with the following features:
+---
 
-Bot Management Dashboard:
+**Bot Management Dashboard:**
 
-Create New Bot: Allows you to create new bots by providing their token, name, and language.
+-Create New Bot: Allows you to create new bots by providing their token, name, and language.
 
-Bot List: A list of all your bots with their statuses (Running/Stopped) and options to manage them.
+-Bot List: A list of all your bots with their statuses (Running/Stopped) and options to manage them.
 
-Bot Settings: Edit bot configurations, change tokens, and modify names and descriptions.
+-Bot Settings: Edit bot configurations, change tokens, and modify names and descriptions.
 
-Plugins: Manage bot plugins like music or moderation commands.
+-Plugins: Manage bot plugins like music or moderation commands.
 
-Console: View logs and outputs related to bot activities for debugging and monitoring.
+-Console: View logs and outputs related to bot activities for debugging and monitoring.
 
-Backup: Download and upload backups of your bot configurations for easy restoration.
+-Backup: Download and upload backups of your bot configurations for easy restoration.
 
-Managing Bots
-Create a Bot: To create a new bot, click "Create Bot" and provide the necessary details like the bot's token, name, and language (Python or JavaScript).
+**Managing Bots**
+-Create a Bot: To create a new bot, click "Create Bot" and provide the necessary details like the bot's token, name, and language (Python or JavaScript).
 
-Start/Stop Bot: You can start or stop your bot by clicking the respective buttons. Remember, bots only run when the app is open.
+-Start/Stop Bot: You can start or stop your bot by clicking the respective buttons. Remember, bots only run when the app is open.
 
-Command Management: Add new commands to your bot, modify existing ones, and delete them when no longer needed.
+*Command Management:Add new commands to your bot, modify existing ones, and delete them when no longer needed.
 
-Backups
+**Backups**
 The application allows you to create backups of bot configurations. You can download a backup at any time and restore it later.
 
-Backup Creation: Click "Create Backup" from the bot's settings page to download a .json file with all the bot's settings.
+-Backup Creation: Click "Create Backup" from the bot's settings page to download a .json file with all the bot's settings.
 
-Restore Backup: To restore a bot, simply upload the .json backup file using the restore option.
+-Restore Backup: To restore a bot, simply upload the .json backup file using the restore option.
 
-Troubleshooting
+**Troubleshooting**
 Issues with Electron or Node.js
 Ensure you have the correct version of Node.js installed. You can verify your Node.js version with:
 ```
@@ -129,13 +131,13 @@ If you're using Linux and encounter permission issues when running the app, you 
 ```
 chmod +x node_modules/.bin/electron
 ```
-Error Logs
+**Error Logs**
 If the application crashes or you encounter any issues, check the console output in the terminal or Electron's built-in developer tools for more details.
 
-Contributing
+**Contributing**
 We welcome contributions to improve this project. Here’s how you can help:
 
-Fork the repository.
+**Fork the repository.**
 
 Create a new branch for your changes (git checkout -b feature/your-feature).
 
