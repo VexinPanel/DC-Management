@@ -46,7 +46,7 @@ Follow the steps below to install the app, set it up, and get started on your lo
 First, clone this repository to your local machine using Git:
 
 ```
-git clone https://github.com/your-username/discord-bot-manager.git
+git clone https://github.com/VexinPanel/DC-Management
 ```
 Step 2: Navigate to the Project Folder
 Change your working directory to the project folder:
