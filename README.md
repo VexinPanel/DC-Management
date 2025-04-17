@@ -45,22 +45,19 @@ Follow the steps below to install the app, set it up, and get started on your lo
 
 First, clone this repository to your local machine using Git:
 
-```bash
+```
 git clone https://github.com/your-username/discord-bot-manager.git
+```
 Step 2: Navigate to the Project Folder
 Change your working directory to the project folder:
-
-bash
-Copy
-Edit
+```
 cd discord-bot-manager
+```
 Step 3: Install Dependencies
 Install the necessary dependencies using npm:
-
-bash
-Copy
-Edit
+```
 npm install
+```
 This command will install all required libraries, including Electron, Express, and others specified in the package.json file.
 
 Step 4: Choose Your Operating System
@@ -77,17 +74,14 @@ For macOS users, make sure you're running macOS 10.12 Sierra or later. To check 
 Linux
 Linux users should be running a distribution released after Ubuntu 20.04 or a similar modern distribution. For installation of dependencies like libgconf-2-4, make sure your system has the proper libraries. You can install missing libraries using the following commands:
 
-bash
-Copy
-Edit
+```
 sudo apt-get install libgconf-2-4
+```
 Step 5: Start the Application
 Once the dependencies are installed, you can start the app by running:
-
-bash
-Copy
-Edit
+```
 npm start
+```
 This will launch the app and open a new window that you can interact with.
 
 Usage
@@ -125,20 +119,16 @@ Restore Backup: To restore a bot, simply upload the .json backup file using the 
 Troubleshooting
 Issues with Electron or Node.js
 Ensure you have the correct version of Node.js installed. You can verify your Node.js version with:
-
-bash
-Copy
-Edit
+```
 node -v
+```
 If you experience crashes or issues with Electron, make sure your graphics drivers and dependencies are up-to-date.
 
 Permissions Issues (Linux)
 If you're using Linux and encounter permission issues when running the app, you may need to grant execute permissions to the Electron binary:
-
-bash
-Copy
-Edit
+```
 chmod +x node_modules/.bin/electron
+```
 Error Logs
 If the application crashes or you encounter any issues, check the console output in the terminal or Electron's built-in developer tools for more details.
 
@@ -182,6 +172,3 @@ To restore a bot, click "Restore Backup" in the bot's settings page and upload t
 
 We hope you enjoy using the Discord Bot Manager. If you have any questions or feedback, feel free to reach out through the Issues tab or contribute to the project!
 
-go
-Copy
-Edit
